@@ -1,0 +1,24 @@
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import svgr from 'vite-plugin-svgr'
+
+// https://vite.dev/config/
+export default defineConfig({
+    base: '/',
+    plugins: [
+        react(),
+        svgr({
+            // https://react-svgr.com/docs/options/
+            include: "**/*.svg",
+            svgrOptions: {
+                exportType: "default",
+                ref: true,
+                svgo: false,
+                titleProp: true
+            }
+        })
+    ],
+    server: {
+        host: true
+    }
+})
