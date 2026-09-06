@@ -1,0 +1,33 @@
+/* G E N E R A L */
+
+/* all */
+
+blockquote, figcaption, h1, h2, h3, p {
+    color: var(--text-color);
+}
+
+/* anchor */
+
+a {
+    color: inherit;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+/* heading */
+
+h1, h2, h3 {
+    margin: 0;
+}
+
+/* D E S K T O P */
+
+@media (min-width: 768px) {
+
+    /* anchor */
+
+    a {
+        cursor: pointer;
+    }
+
+}

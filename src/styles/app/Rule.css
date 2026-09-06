@@ -1,0 +1,25 @@
+/* G E N E R A L */
+
+/* .rule */
+
+hr, .rule, .rule--strong {
+    border: none;
+    width: 100%;
+
+    margin: 0 auto;
+    position: relative;
+}
+
+hr, .rule {
+    background: var(--rule-border-color);
+    opacity: var(--rule-border-opacity);
+    height: 1px;
+}
+
+/* .rule--strong */
+
+.rule--strong {
+    background: var(--rule-strong-border-color);
+    opacity: var(--rule-strong-border-opacity);
+    height: 1.5px;
+}

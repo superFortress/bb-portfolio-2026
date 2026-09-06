@@ -1,9 +1,9 @@
 // I M P O R T
 
-// Component
-import App from './components/App';
+// Components
+import App from './App';
 
-// Module
+// Modules
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom';
@@ -11,9 +11,9 @@ import { BrowserRouter } from 'react-router-dom';
 // E X P O R T
 
 createRoot(document.getElementById('root')).render(
-    <StrictMode>
+    //<StrictMode>
         <BrowserRouter>
             <App />
         </BrowserRouter>
-    </StrictMode>
+    //</StrictMode>
 );

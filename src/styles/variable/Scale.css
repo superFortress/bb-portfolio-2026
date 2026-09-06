@@ -1,0 +1,84 @@
+/* G E N E R A L */
+
+:root {
+
+        /* video */
+
+        --video-aspect-ratio: 56.25%;
+        
+}
+
+/* D E S K T O P */
+
+@media (min-width: 768px) {
+
+    :root {
+
+        /* app */
+
+        --app-width: min(65vw, 1080px);
+        --app-width-large: min(calc(100vw - 120px), 1680px);
+        --app-width-small: min(50vw, 960px);
+
+        /* button */
+
+        --button-menu-gap: 10px;
+    
+        /* project */
+
+        --project-header-gap: 55px;
+        --project-header-padding-top: 155px;
+        --project-header-padding-bottom: 100px;
+
+        --project-section-gap: 60px;
+        --project-section-padding-top: 60px;
+        --project-section-padding-bottom: 60px;
+
+    }
+
+}
+
+/* T A B L E T */
+
+@media (max-width: 1199px) and (min-width: 768px) {
+
+    :root {
+
+        /* app */
+
+        --app-width: min(85vw, calc(100vw - 120px));
+        --app-width-small: 65vw;
+
+    }
+
+}
+
+/* M O B I L E */
+
+@media (max-width: 767px) {
+
+    :root {
+
+        /* app */
+
+        --app-width: calc(100vw - 30px);
+        --app-width-large: calc(100vw - 30px);
+        --app-width-small: calc(100vw - 30px);
+
+        /* button */
+
+        --button-menu-gap: 5px;
+
+        /* project */
+
+        --project-header-gap: 40px;
+        --project-header-padding-top: 80px;
+        --project-header-padding-bottom: 50px;
+
+        --project-section-gap: 30px;
+        --project-section-padding-top: 30px;
+        --project-section-padding-bottom: 30px;
+
+    }
+
+}

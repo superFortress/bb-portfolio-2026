@@ -1,0 +1,155 @@
+/* G E N E R A L */
+
+/* root */
+
+:root {
+    color: var(--text-color);
+    font-family: 'Geist', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    text-align: left;
+    font-synthesis: none;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+
+    background-color: var(--page-background);
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+html {
+    /* scroll-behavior: smooth; */
+    overflow-y: scroll;
+}
+
+body {
+    margin: 0;
+}
+
+/* button */
+
+button {
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+
+    background: none;
+    border: none;
+    padding: 0;
+
+    display: inline;
+
+    user-select: none;
+}
+
+/* canvas */
+
+canvas {
+    display: block;
+}
+
+/* dl */
+
+dl {
+    padding: 0;
+
+    margin: 0;
+
+    list-style: none;
+}
+
+dt, dd {
+    font-weight: inherit;
+
+    margin: 0;
+}
+
+/* figure */
+
+figure {
+    margin: 0;
+}
+
+figure :is(img, video) {
+    margin: 0 auto;
+}
+
+figure img {
+    width: 100%;
+}
+
+/* img */
+
+img {
+    max-width: 100%;
+
+    display: block;
+
+    pointer-events: none;
+    user-select: none;
+}
+
+/* main */
+
+main,
+main > div {
+    width: 100%;
+}
+
+/* ul */
+
+ul {
+    padding: 0;
+
+    margin: 0;
+
+    list-style: none;
+}
+
+/* #app */
+
+#app {
+    position: relative;
+    width: 100%;
+    max-width: 100vw;
+    min-height: 100vh;
+    
+    overflow-x: clip;
+}
+
+/* D E S K T O P */
+
+@media (min-width: 768px) {
+
+    /* root */
+
+    :root {
+        font-size: 16px;
+        line-height: 25px;
+    }
+
+    /* button */
+
+    button {
+        cursor: pointer;
+    }
+
+}
+
+/* M O B I L E */
+
+@media (max-width: 767px) {
+
+    /* root */
+
+    :root {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+}

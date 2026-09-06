@@ -1,0 +1,11 @@
+/* G E N E R A L */
+
+:root {
+
+    --app-logo-z-index: 100;
+    --app-header-z-index: 80;
+    --app-footer-z-index: 0;
+
+    --modal-z-index: 90;
+
+}

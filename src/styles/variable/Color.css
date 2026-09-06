@@ -1,0 +1,91 @@
+/* G E N E R A L */
+
+/* palette */
+
+:root {
+
+    --box-shadow0:
+        0 0 rgba(0, 0, 0, 0);
+    --box-shadow1:
+        0 1px 2px rgba(0, 0, 0, 0.15);
+
+   --color-white: #fff;
+   --color-gray1: #f5f6f7;
+   --color-gray2: #e2e3e4;
+   --color-gray3: #d0d1d2;
+   --color-gray4: #222;
+   --color-black: #000;
+   
+   --color-coral: #f65;
+   --color-lemon: #fc3;
+   --color-basil: #6d7;
+   --color-azure: #6cf;
+   --color-royal: #44a;
+   --color-grape: #87f;
+   --color-fairy: #f8c;
+
+}
+
+/* applied */
+
+:root {
+
+    /* app */
+
+    --app-logo-text-color: var(--text-color);
+
+    --app-footer-text-color: var(--text-color);
+    --app-footer-text-opacity: 0.3;
+
+    --app-header-text-color: var(--text-color);
+    --app-header-button-text-color: var(--text-color);
+
+    /* carousel */
+
+    --carousel-control-color: var(--color-gray4);
+    --carousel-control-color-active: var(var(--color-gray4));
+    --carousel-control-opacity: 0.2;
+    --carousel-control-opacity-active: 1;
+
+    /* credits */
+
+    --credits-color: var(--text-color);
+
+    /* image */
+
+    --image-box-shadow: var(--box-shadow1);
+
+    /* modal */
+
+    --modal-background: var(--color-white);
+    --modal-button-text-color: var(--text-color);
+
+    /* page */
+
+    --page-background: var(--color-gray1);
+
+    /* type */
+
+    --link-color: var(--color-coral);
+
+    --rule-border-color: var(--color-black);
+    --rule-border-opacity: 0.15;
+    --rule-strong-border-color: var(--color-gray4);
+    --rule-strong-border-opacity: 1;
+
+    --text-color: var(--color-gray4);
+
+    /* video */
+
+    --video-background: transparent;
+    --video-box-shadow: var(--box-shadow1);
+
+    --video-control-color: var(--color-white);
+    --video-control-box-shadow: var(--box-shadow1);
+
+    --video-overlay-dimmer-color: var(--color-black);
+    --video-overlay-dimmer-opacity: 0.2;
+    --video-overlay-shadow-color: var(--color-black);
+    --video-overlay-shadow-opacity: 0.2;
+
+}

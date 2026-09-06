@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "module": "ESNext",
+        "moduleResolution": "Bundler",
+        "resolvePackageJsonImports": true,
+        "paths": {
+            "#components/*": ["./src/components/*"],
+            "#resources/*": ["./src/resources/*"],
+            "#utils/*": ["./src/utils/*"]
+        }
+    },
+    "include": [
+        "src"
+    ]
+}
