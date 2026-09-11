@@ -43,7 +43,7 @@
     /* carousel */
 
     --carousel-control-color: var(--color-gray4);
-    --carousel-control-color-active: var(var(--color-gray4));
+    --carousel-control-color-active: var(--color-gray4);
     --carousel-control-opacity: 0.2;
     --carousel-control-opacity-active: 1;
 

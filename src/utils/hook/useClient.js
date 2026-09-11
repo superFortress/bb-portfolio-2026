@@ -35,10 +35,11 @@ function useClient(callback = null, delay = 150) {
         };
         nextClient.onDesktop = nextClient.device !== 'mobile';
         nextClient.onMobile = nextClient.device === 'mobile';
+        // Set arbitrary width per device
         nextClient.app.width =
             nextClient.device === 'mobile' ? bodyWidth - 30 :
                 nextClient.device === 'tablet' ? Math.round(bodyWidth * 0.85) :
-                    Math.round(Math.min(bodyWidth * 0.65), 1680);
+                    Math.min(Math.round(bodyWidth * 0.65), 1680);
         return nextClient;
     }, []);
 
