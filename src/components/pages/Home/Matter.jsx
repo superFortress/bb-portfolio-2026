@@ -1,8 +1,5 @@
 // I M P O R T
 
-// Assets
-import ImageHomeTitles from '#assets/images/home/titles.png';
-
 // Components
 import CanvasCollision from './Canvas/Collision';
 import CanvasContainer from './Canvas/Container';

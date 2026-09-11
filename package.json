@@ -30,9 +30,7 @@
         "vite": "^6.3.5"
     },
     "imports": {
-        "#assets/images/*": "./public/assets/images/*",
-        "#assets/vector/*": "./src/assets/vector/*",
-        "#assets/videos/*": "./public/assets/videos/*",
+        "#assets/*": "./src/assets/*",
         "#components/*": "./src/components/*",
         "#resources/*": "./src/resources/*",
         "#styles/*": "./src/styles/*",

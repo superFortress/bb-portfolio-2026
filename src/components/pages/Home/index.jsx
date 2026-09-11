@@ -1,7 +1,6 @@
 // I M P O R T
 
 // Assets
-import ImageTitles from '#assets/images/home/titles.png';
 import IconArrowRight from '#assets/vector/ui/arrow-right.svg';
 
 // Components
@@ -75,7 +74,7 @@ export default function Home() {
             }}>
                 <img
                     alt="home screen titles"
-                    src={ImageTitles}
+                    src="assets/images/home/titles.png"
                 />
                 <div style={{
                     width: '100%',
@@ -130,6 +129,8 @@ export default function Home() {
         </div>
 
         {/* Matter */}
+
+        <Matter />
 
     </div>;
 
