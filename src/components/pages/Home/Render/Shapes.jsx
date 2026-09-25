@@ -5,7 +5,7 @@ import { createRef, useState } from 'react';
 
 // E X P O R T
 
-export default function Shapes({
+export default function RenderShapes({
 
     // Element
     shapeBodyMapRef = null,

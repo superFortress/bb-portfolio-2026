@@ -9,7 +9,7 @@ import randomEntry from '#utils/random/randomEntry.js';
 
 // E X P O R T
 
-export default function Collision({
+export default function CanvasCollision({
 
     // Element
     colorArray = [],

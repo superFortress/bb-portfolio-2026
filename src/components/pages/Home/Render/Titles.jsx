@@ -1,6 +1,6 @@
 // E X P O R T
 
-export default function Titles({
+export default function RenderTitles({
 
     // Element
     titleBodyMapRef = null,

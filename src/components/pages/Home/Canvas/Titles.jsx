@@ -6,7 +6,7 @@ import { useEffect, useRef } from 'react';
 
 // E X P O R T
 
-export default function Titles({
+export default function CanvasTitles({
 
     // Element
     titleBodyMapRef = null,
