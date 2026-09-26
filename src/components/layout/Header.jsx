@@ -1,8 +1,8 @@
 // I M P O R T
 
 // Assets
-import IconHome from '#assets/vector/icon/home.svg';
-import IconPlane from '#assets/vector/icon/plane.svg';
+import IconHome from '#assets/vector/icons/home.svg';
+import IconPlane from '#assets/vector/icons/plane.svg';
 
 // Components
 import Button from '#components/widgets/Button';
