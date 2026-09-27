@@ -27,7 +27,7 @@
         /* project */
 
         --project-header-gap: 55px;
-        --project-header-padding-top: 155px;
+        --project-header-padding-top: 145px;
         --project-header-padding-bottom: 100px;
 
         --project-section-gap: 60px;
@@ -46,7 +46,7 @@
 
         /* app */
 
-        --app-width: min(85vw, calc(100vw - 120px));
+        --app-width: min(calc(100vw - 120px), 85vw);
         --app-width-small: 65vw;
 
     }
@@ -63,7 +63,7 @@
 
         --app-width: calc(100vw - 30px);
         --app-width-large: calc(100vw - 30px);
-        --app-width-small: calc(100vw - 30px);
+        --app-width-small: min(calc(100vw - 30px), 400px);
 
         /* button */
 
@@ -72,7 +72,7 @@
         /* project */
 
         --project-header-gap: 40px;
-        --project-header-padding-top: 80px;
+        --project-header-padding-top: 65px;
         --project-header-padding-bottom: 50px;
 
         --project-section-gap: 30px;
