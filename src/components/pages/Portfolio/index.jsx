@@ -1,60 +1,82 @@
 // I M P O R T
 
+// Components
+import PortfolioItem from './Item';
+
 // Modules
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import { useState } from 'react';
 
-// S T Y L E S
+// Resources
+import work from '#resources/workStore.jsx';
 
-const StyledList = styled.ul`
+// Styles
+import '#styles/components/pages/Portfolio.css';
+import '#styles/components/pages/PortfolioItem.css';
 
-    position: absolute;
-    top: 48vh;
-    left: 50%;
-    transform: translate(-50%, -50%);
+// Utils
+import clamp from '#utils/clamp/clamp.js';
+import useClient from '#utils/hook/useClient.js';
+import useListener from '#utils/hook/useListener.js';
 
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+// S T A T I C
 
-    a {
-        font-size: 20px;
-        line-height: 30px;
-
-        background: #8495eb;
-        border-radius: 20px;
-        padding: 5px 15px;
-    }
-
-    a:hover {
-        background: #ffb9ff;
-    }
-
-
-`;
+const workArray = ['rinkel', 'escience', 'guardian', 'eread', 'agrico', 'talkthick', 'pink', 'vocol', 'opa', 'noord', 'nova', 'jip', 'monster', 'pool', 'cloud', 'creamy', 'rabo', 'hoofd', 'traffic', 'year']
+    .flatMap((id) => !work[id] ? [] : { id, ...work[id] });
 
 // E X P O R T
 
 export default function Portfolio() {
 
+    // A S S I G N
+
+    // States
+    const client = useClient();
+    const [focusIndex, setFocusIndex] = useState(-1);
+
+    // E F F E C T
+
+    // Highlight item relative to scroll
+    useListener(window, 'scroll', () => {
+        if (client.onDesktop) return;
+        // Get page measurements
+        const pageHeight = document.documentElement.scrollHeight;
+        const portHeight = window.innerHeight;
+        const scrollY = window.scrollY;
+        // Set buffers
+        const bufferTop = 1;
+        const bufferBottom = 0;
+        // Set scroll amount from 0 to 100
+        const scrollFactor = clamp(
+            (scrollY - bufferTop) /
+            ((pageHeight - bufferBottom) - (portHeight - bufferBottom))
+        , 0, 1);
+        // Select index based on scroll
+        const focusIndex = Math.ceil(workArray.length * scrollFactor) - 1;
+        setFocusIndex(focusIndex);
+    });
+
     // R E T U R N
 
-    return <div style={{
-        background: '#d5e9ff',
-        width: '100vw',
-        height: '200vh'
-    }}>
-        <StyledList>
-            <li><Link to='/work/project1'>
-                Project 1
-            </Link></li>
-            <li><Link to='/work/project2'>
-                Project 2
-            </Link></li>
-            <li><Link to='/work/project3'>
-                Project 3
-            </Link></li>
-        </StyledList>
+    return <div className="portfolio">
+        <ul>
+            {workArray.map((item, index) => {
+                const focus = focusIndex === index || undefined;
+                const ratio = client.onDesktop ? item.ratio : 'auto';
+                return <li key={item.id}>
+                    <Link
+                        onMouseEnter={() => setFocusIndex(index)}
+                        onMouseLeave={() => setFocusIndex(-1)}
+                    >
+                        <PortfolioItem
+                            {...item}
+                            focus={focus}
+                            ratio={ratio}
+                        />
+                    </Link>
+                </li>
+            })}
+        </ul>
     </div>;
 
 }

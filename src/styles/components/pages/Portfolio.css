@@ -1,0 +1,57 @@
+/* G E N E R A L */
+
+/* .portfolio */
+
+.portfolio {
+    padding-top: var(--project-header-padding-top);
+}
+
+.portfolio > ul {
+    display: flex;
+}
+
+.portfolio > ul > li > a {
+    display: block;
+}
+
+/* D E S K T O P */
+
+@media (min-width: 768px) {
+
+    /* .portfolio */
+
+    .portfolio {
+        width: var(--app-width-large);
+
+        margin: -10px auto;
+    }
+
+    .portfolio > ul {
+        flex-wrap: wrap;
+        gap: 0px 20px;
+    }
+
+    .portfolio > ul > li > a {
+        padding: 10px 0;
+    }
+
+}
+
+/* M O B I L E */
+
+@media (max-width: 767px) {
+
+    /* .portfolio */
+
+    .portfolio {
+        width: var(--app-width-small);
+
+        margin: 0 auto;
+    }
+
+    .portfolio > ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+}

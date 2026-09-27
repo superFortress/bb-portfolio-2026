@@ -1,0 +1,154 @@
+/* G E N E R A L */
+
+/* .portfolio-item */
+
+.portfolio-item {
+    background: var(--color-white);
+    border-radius: 5px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+/* .portfolio-item__about */
+
+.portfolio-item__about ul {
+    opacity: 0.4;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.portfolio-item__about ul > li {
+    align-items: center;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 5px;
+}
+
+/* .portfolio-item__image */
+
+.portfolio-item__image {
+    background-position: center;
+    background-size: cover;
+    opacity: 1;
+
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    transition: opacity 0.2s;
+}
+
+.portfolio-item__image[aria-current] {
+    opacity: 0;
+}
+
+/* D E S K T O P */
+
+@media (min-width: 768px) {
+
+    /* .portfolio-item */
+
+    .portfolio-item {
+        box-shadow: var(--box-shadow2);
+        height: 270px;
+
+        position: relative;
+        top: -3px;
+
+        transition: all 0.15s;
+    }
+
+    .portfolio-item[aria-current] {
+        box-shadow: var(--box-shadow0);
+
+        top: 0px;
+    }
+
+    /* .portfolio-item__about */
+
+    .portfolio-item__about {
+        padding: 15px;
+    }
+
+    .portfolio-item__about > h1 {
+        font-size: 32px;
+        line-height: 36px;
+
+        width: calc(100% - 140px);
+    }
+
+    .portfolio-item__about > hr {
+        margin: 15px 0 12px;
+    }
+
+    .portfolio-item__about > svg {
+        max-width: 120px;
+        max-height: 30px;
+
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+
+    .portfolio-item__about ul {
+        margin-top: 10px;
+
+        gap: 0px 12px;
+    }
+
+    .portfolio-item__about ul > li > svg {
+        height: 15px;
+    }
+
+}
+
+/* M O B I L E */
+
+@media (max-width: 767px) {
+
+    /* .portfolio-item */
+
+    .portfolio-item > div {
+        height: 210px;
+    }
+
+    /* .portfolio-item__about */
+
+    .portfolio-item__about {
+        padding: 12px;
+    }
+
+    .portfolio-item__about > h1 {
+        font-size: 27px;
+        line-height: 32px;
+
+        width: calc(100% - 110px);
+    }
+
+    .portfolio-item__about > hr {
+        margin: 12px 0;
+    }
+
+    .portfolio-item__about > svg {
+        max-width: 90px;
+        max-height: 30px;
+
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+
+    .portfolio-item__about ul {
+        margin-top: 10px;
+
+        gap: 0px 10px;
+    }
+
+    .portfolio-item__about ul > li > svg {
+        height: 14px;
+    }
+
+}

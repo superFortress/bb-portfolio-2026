@@ -27,25 +27,4 @@ export default [{
     route: '/work',
     style: '',
 
-}, {
-
-    alias: 'Project 1',
-    child: lazy(() => import('#components/pages/Project1')),
-    route: '/work/project1',
-    style: '',
-
-}, {
-
-    alias: 'Project 2',
-    child: lazy(() => import('#components/pages/Project2')),
-    route: '/work/project2',
-    style: '',
-
-}, {
-
-    alias: 'Project 3',
-    child: lazy(() => import('#components/pages/Project3')),
-    route: '/work/project3',
-    style: '',
-
 }];
