@@ -80,7 +80,7 @@ export default function Home() {
                 <li>
                     <Button
                         to="/work"
-                        fillColor="var(--color-lemon)"
+                        fillColor="var(--color-daisy)"
                     >
                         <span>View my portfolio</span>
                         <IconArrowRight />
