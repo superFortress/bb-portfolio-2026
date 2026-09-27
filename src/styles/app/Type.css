@@ -3,7 +3,7 @@
 /* all */
 
 blockquote, figcaption, h1, h2, h3, p {
-    color: var(--text-color);
+    color: inherit;
 }
 
 /* anchor */
@@ -17,6 +17,12 @@ a {
 /* heading */
 
 h1, h2, h3 {
+    margin: 0;
+}
+
+/* paragraph */
+
+p {
     margin: 0;
 }
 
