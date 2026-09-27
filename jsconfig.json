@@ -4,6 +4,7 @@
         "moduleResolution": "Bundler",
         "resolvePackageJsonImports": true,
         "paths": {
+            "#assets/vector/*": ["./src/assets/vector/*"],
             "#components/*": ["./src/components/*"],
             "#resources/*": ["./src/resources/*"],
             "#utils/*": ["./src/utils/*"]

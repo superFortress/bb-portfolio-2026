@@ -1,12 +1,12 @@
 // I M P O R T
 
-// Modules
+// Utils
 import metaGlobToObject from '#utils/filesystem/metaGlobToObject.js';
 
 // S T A T I C
 
 const shapeStore = metaGlobToObject(import.meta.glob(
-    '/src/assets/vector/shape/*.svg',
+    '/src/assets/vector/shapes/*.svg',
     { eager: true }
 ));
 
@@ -27,7 +27,7 @@ const titleStore = {
 // E X P O R T
 
 export const colorArray = [
-    'var(--color-lemon)',
+    'var(--color-daisy)',
     'var(--color-azure)',
     'var(--color-royal)',
     'var(--color-fairy)'
