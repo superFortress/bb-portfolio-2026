@@ -45,13 +45,13 @@ export default function Portfolio() {
     return <div className="portfolio">
         <ul>
             {itemArray.map((item) => (
-                <li key={`${itemLabel}-${item.id}`}>
-                    <PortfolioItem
-                        {...item}
-                        ratio={client.onDesktop ? item.ratio : 'auto'}
-                        setItemLabel={setItemLabel}
-                    />
-                </li>
+                <PortfolioItem
+                    {...item}
+                    key={`${itemLabel}-${item.id}`}
+                    ratio={client.onDesktop ? item.ratio : 'auto'}
+                    route={`/work/${item.id}`}
+                    setItemLabel={setItemLabel}
+                />
             ))}
         </ul>
     </div>;

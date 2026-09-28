@@ -38,8 +38,7 @@ export default function PortfolioItem({
 
     // R E T U R N
 
-    return <Link
-        to={route}
+    return <li
         onMouseEnter={() => setFocus(true)}
         onMouseLeave={() => setFocus(false)}
     >
@@ -48,6 +47,16 @@ export default function PortfolioItem({
             className="portfolio-item"
             style={{ aspectRatio: ratio }}
         >
+
+            {/* Anchor */}
+
+            <Link to={route} style={{
+                width: '100%',
+                height: '100%',
+
+                position: 'absolute',
+                inset: 0
+            }} />
 
             {/* Brand */}
 
@@ -67,7 +76,11 @@ export default function PortfolioItem({
                 <ul>
                     {roleArray.map((role) => (
                         <li key={role.alias}>
-                            <button onClick={() => setItemLabel(role.alias)}>
+                            <button onClick={(event) => {
+                                event.preventDefault();
+                                event.stopPropagation();
+                                setItemLabel(role.alias);
+                            }}>
                                 <role.image />
                                 <span>{role.alias}</span>
                             </button>
@@ -79,6 +92,6 @@ export default function PortfolioItem({
             </div>
 
         </div>
-    </Link>;
+    </li>;
 
 }

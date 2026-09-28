@@ -27,10 +27,8 @@
         gap: 0px 20px;
     }
 
-    .portfolio > ul > li > a {
+    .portfolio > ul > li {
         padding: 10px 0;
-
-        display: block;
     }
 
 }
