@@ -55,7 +55,8 @@ export default function PortfolioItem({
                 height: '100%',
 
                 position: 'absolute',
-                inset: 0
+                inset: 0,
+                zIndex: 1
             }} />
 
             {/* Brand */}
