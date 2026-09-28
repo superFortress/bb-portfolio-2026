@@ -10,10 +10,6 @@
     display: flex;
 }
 
-.portfolio > ul > li > a {
-    display: block;
-}
-
 /* D E S K T O P */
 
 @media (min-width: 768px) {
@@ -33,6 +29,8 @@
 
     .portfolio > ul > li > a {
         padding: 10px 0;
+
+        display: block;
     }
 
 }

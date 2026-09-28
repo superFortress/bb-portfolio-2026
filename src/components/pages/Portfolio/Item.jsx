@@ -1,17 +1,32 @@
+// I M P O R T
+
+// Assets
+import { ui } from '#assets/vector/index.jsx';
+
+// Modules
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 // E X P O R T
 
 export default function PortfolioItem({
 
     alias = <>Undefined</>,
     brand: BrandLogo = null,
-    brief = <>Undefined</>,
-    color = '#f33',
-    focus = false,
-    image = '/assets/images/utils/missing-image.png',
+    color = '#fff',
+    image = '/assets/images/misc/missing-image.png',
     ratio = 'auto',
-    roles = []
+    roles = [],
+    route = '/work',
+
+    setItemLabel = () => { }
 
 }) {
+
+    // A S S I G N
+
+    // States
+    const [focus, setFocus] = useState(false);
 
     // D E F I N E
 
@@ -23,41 +38,47 @@ export default function PortfolioItem({
 
     // R E T U R N
 
-    return <div
-        aria-current={focus || undefined}
-        className="portfolio-item"
-        style={{ aspectRatio: ratio }}
+    return <Link
+        to={route}
+        onMouseEnter={() => setFocus(true)}
+        onMouseLeave={() => setFocus(false)}
     >
-
-        {/* About */}
-
-        <div className="portfolio-item__about">
-            <h1>{alias}</h1>
-            <BrandLogo style={{ color }} />
-            <hr />
-            <p>{brief}</p>
-            <ul>
-                {roleArray.map((role, index) => {
-                    const Icon = role.image;
-                    return <li key={index}>
-                        <Icon />
-                        <span>{role.alias}</span>
-                    </li>
-                })}
-            </ul>
-        </div>
-
-        {/* Image */}
-
         <div
             aria-current={focus || undefined}
-            className="portfolio-item__image"
-            style={{
-                backgroundColor: color,
-                backgroundImage: `url(${image})`
-            }}
-        />
+            className="portfolio-item"
+            style={{ aspectRatio: ratio }}
+        >
 
-    </div>;
+            {/* Brand */}
+
+            <BrandLogo className="portfolio-item__brand" style={{
+                color: color
+            }} />
+
+            {/* Image */}
+
+            <div className="portfolio-item__image" style={{
+                backgroundImage: `url(${image})`
+            }} />
+
+            {/* About */}
+
+            <div className="portfolio-item__about">
+                <ul>
+                    {roleArray.map((role) => (
+                        <li key={role.alias}>
+                            <button onClick={() => setItemLabel(role.alias)}>
+                                <role.image />
+                                <span>{role.alias}</span>
+                            </button>
+                        </li>
+                    ))}
+                </ul>
+                <h1>{alias}</h1>
+                <ui.arrowUpRight />
+            </div>
+
+        </div>
+    </Link>;
 
 }
