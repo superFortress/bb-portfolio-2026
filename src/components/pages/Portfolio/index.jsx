@@ -85,9 +85,9 @@ export default function Portfolio() {
                         onMouseEnter={() => setItemIndex(index)}
                         onMouseLeave={() => setItemIndex(-1)}
                         // Motion
-                        initial={start()}
-                        animate={enter(index)}
-                        exit={leave(index)}
+                        initial={client.onDesktop ? start() : {}}
+                        animate={client.onDesktop ? enter(index) : {}}
+                        exit={client.onDesktop ? leave(index) : {}}
                     >
                         <PortfolioItem
                             {...item}
