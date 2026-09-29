@@ -65,7 +65,13 @@ export default function Header() {
                             exit={{ opacity: 0 }}
                             transition={{ duration: 0.2 }}
                         >
-                            <Link to={path.route}>
+                            <Link
+                                to={path.route}
+                                onClick={(event) => {
+                                    if (location.pathname === path.route)
+                                        event.preventDefault();
+                                }}
+                            >
                                 <span>
                                     {path.alias}
                                 </span>
@@ -79,7 +85,11 @@ export default function Header() {
 
             <ul className="app-header__menu">
                 {client.onDesktop && <li>
-                    <Button to="/">
+                    <Button to="/" onClick={(event) => {
+                        if (location.pathname === '/') {
+                            event.preventDefault();
+                        }
+                    }}>
                         <IconHome />
                         <span>Home</span>
                     </Button>

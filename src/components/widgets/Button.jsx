@@ -126,6 +126,7 @@ export default function Button({
 
     if (to.length) return <StyledLink
         className="button"
+        onClick={onClick}
         to={to}
         $fillColor={fillColor}
         $textColor={textColor}

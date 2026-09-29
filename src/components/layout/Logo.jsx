@@ -1,12 +1,12 @@
 // I M P O R T
 
 // Modules
-import { useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 // S T Y L E D
 
-const StyledAnchor = styled.a`
+const StyledLink = styled(Link)`
 
     color: var(--app-logo-text-color);
     font-family: "Radio Canada Big", sans-serif;
@@ -91,14 +91,16 @@ export default function Logo() {
     // A S S I G N
 
     // Variables
-    const navigate = useNavigate();
+    const location = useLocation();
 
     // R E T U R N
 
-    return <StyledAnchor onClick={() => navigate('/')}>
+    return <StyledLink to="/" onClick={(event) => {
+        if (location.pathname === '/') event.preventDefault();
+    }}>
         {'Boriz'.split('').map((entry, index) => (
             <span key={index}>{entry}</span>
         ))}
-    </StyledAnchor>;
+    </StyledLink>;
 
 }
