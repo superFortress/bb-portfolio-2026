@@ -11,10 +11,39 @@ import '#styles/components/pages/Portfolio.css';
 import '#styles/components/pages/PortfolioItem.css';
 
 // Modules
-import { useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
+import { useState } from 'react';
 
 // Utils
 import useClient from '#utils/hook/useClient.js';
+
+// M O T I O N
+
+const start = () => ({
+    opacity: 0,
+    x: 80,
+});
+
+const enter = (index) => ({
+    opacity: 1,
+    x: 0,
+    transition: {
+        delay: 0.4 * (1 - Math.pow(0.7, index)),
+        type: 'spring',
+        stiffness: 450,
+        damping: 27
+    }
+});
+
+const leave = (index) => ({
+    opacity: 0,
+    x: -240,
+    transition: {
+        delay: 0.4 * (1 - Math.pow(0.7, index)),
+        duration: 0.2,
+        ease: 'easeIn'
+    }
+});
 
 // E X P O R T
 
@@ -24,35 +53,51 @@ export default function Portfolio() {
 
     // States
     const client = useClient();
-    const [itemArray, setItemArray] = useState([]);
+    const [itemArray, setItemArray] = useState(workArray);
+    const [itemIndex, setItemIndex] = useState(-1);
     const [itemLabel, setItemLabel] = useState('All');
 
-    // E F F E C T
+    // F U N C T I O N
 
-    // Select projects by current label
-    useEffect(() => {
-        if (itemLabel === 'All') setItemArray(workArray);
-        else setItemArray(() => (
-            workArray.filter((work) => {
-                const labelArray = work.roles.map((role) => role.alias);
-                return labelArray.includes(itemLabel);
-            })
-        ));
-    }, [itemLabel, workArray]);
+    const setLabel = (label) => {
+        if (client.onMobile) return;
+        if (label === itemLabel) return;
+        setItemLabel(label);
+        setItemArray([]);
+    };
 
     // R E T U R N
 
     return <div className="portfolio">
         <ul>
-            {itemArray.map((item) => (
-                <PortfolioItem
-                    {...item}
-                    key={`${itemLabel}-${item.id}`}
-                    ratio={client.onDesktop ? item.ratio : 'auto'}
-                    route={`/work/${item.id}`}
-                    setItemLabel={setItemLabel}
-                />
-            ))}
+            <AnimatePresence
+                onExitComplete={() => setItemArray(
+                    itemLabel === 'All'
+                        ? workArray
+                        : workArray.filter((work) =>
+                            work.roles.some((role) => role.alias === itemLabel)
+                        )
+                )}
+            >
+                {itemArray.map((item, index) => (
+                    <motion.li
+                        key={item.id}
+                        onMouseEnter={() => setItemIndex(index)}
+                        onMouseLeave={() => setItemIndex(-1)}
+                        // Motion
+                        initial={start()}
+                        animate={enter(index)}
+                        exit={leave(index)}
+                    >
+                        <PortfolioItem
+                            {...item}
+                            focus={index === itemIndex}
+                            ratio={client.onDesktop ? item.ratio : 'auto'}
+                            setLabel={setLabel}
+                        />
+                    </motion.li>
+                ))}
+            </AnimatePresence>
         </ul>
     </div>;
 
