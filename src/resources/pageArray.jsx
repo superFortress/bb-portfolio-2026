@@ -4,27 +4,35 @@
 import { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
 
+// Resources
+import workStore from './workStore';
+
 // E X P O R T
 
 export default [{
 
     alias: 'Home',
     child: lazy(() => import('#components/pages/Home')),
-    route: '/',
-    style: ''
+    route: '/'
 
 }, {
 
     alias: '',
     child: () => <Navigate to="/" replace />,
-    route: '*',
-    style: ''
+    route: '*'
 
 }, {
 
     alias: 'Portfolio',
     child: lazy(() => import('#components/pages/Portfolio')),
-    route: '/work',
-    style: '',
+    route: '/work'
 
-}];
+},
+
+...Object.entries(workStore).map(([key, work]) => ({
+    alias: work.alias.props.children,
+    child: work.child,
+    route: `/work/${key}`
+}))
+
+];
