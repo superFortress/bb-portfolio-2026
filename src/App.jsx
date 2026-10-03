@@ -11,7 +11,7 @@ import { animate, AnimatePresence, motion } from 'motion/react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 
 // Resources
-import routeArray from '#resources/routeArray.jsx';
+import pageArray from '#resources/pageArray.jsx';
 
 // Styles
 import '#styles/app/Root.css';
@@ -27,8 +27,12 @@ export default function App() {
 
     // D E F I N E
 
-    // Store previous pathname
+    // Get current page
     const location = useLocation();
+    const page = pageArray
+        .find((page) => page.route === location.pathname);
+
+    // Store previous pathname
     const prevPathname = useRef(location.pathname);
     useEffect(() => { prevPathname.current = location.pathname; }, [location]);
 
@@ -82,7 +86,7 @@ export default function App() {
 
         {/* Layout */}
 
-        <title>Hello, friend.</title>
+        <title>{`Boriz • ${page.alias}`}</title>
         <Logo />
         <Header />
 
@@ -106,7 +110,7 @@ export default function App() {
                     key={location.key}
                     location={location.pathname}
                 >
-                    {useMemo(() => routeArray.map((entry) => (
+                    {useMemo(() => pageArray.map((entry) => (
                         <Route
                             key={entry.route}
                             path={entry.route}
