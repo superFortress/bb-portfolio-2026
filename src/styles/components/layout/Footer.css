@@ -1,0 +1,41 @@
+/* G E N E R A L */
+
+/* .app-footer */
+
+.app-footer {
+    opacity: 0.35;
+    width: var(--app-width);
+
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 15px;
+    justify-content: space-between;
+
+    margin: 0 auto;
+    position: relative;
+    z-index: var(--app-footer-z-index);
+}
+
+/* D E S K T O P */
+
+@media (min-width: 768px) {
+
+    /* .app-footer */
+
+    .app-footer {
+        padding: 160px 0 45px;
+    }
+
+}
+
+/* M O B I L E */
+
+@media (max-width: 767px) {
+
+    /* .app-footer */
+
+    .app-footer {
+        padding: 120px 0 15px;
+    }
+
+}
