@@ -1,7 +1,8 @@
 {
+    "author": "Boriz Baatsen",
     "name": "bb-portfolio-2026",
-    "private": true,
     "version": "1.0",
+    "private": true,
     "type": "module",
     "scripts": {
         "dev": "vite",
