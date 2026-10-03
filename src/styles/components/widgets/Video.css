@@ -1,0 +1,194 @@
+/* G E N E R A L */
+
+/* .video */
+
+.video {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+/* __content */
+
+.video__content :is(img, video) {
+    width: 100%;
+
+    position: absolute;
+}
+
+.video__content video {
+    z-index: 1;
+}
+
+/* __control */
+
+.video__control {
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.video__control-button,
+.video__control-slider {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.video__control-button svg {
+    height: 30px;
+}
+
+.video__control-button svg g {
+    fill: var(--video-control-color);
+}
+
+.video__control-slider {
+    position: relative;
+}
+
+.video__control-slider * {
+    position: absolute;
+}
+
+.video__control-slider-dial {
+    background: var(--video-control-color);
+    border-radius: 8px;
+    box-shadow: var(--video-control-box-shadow);
+    width: 16px;
+    height: 16px;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.video__control-slider-fill,
+.video__control-slider-line {
+    border-radius: 4px;
+    width: 100%;
+    height: 8px;
+
+    left: 0;
+}
+
+.video__control-slider-fill {
+    background: var(--video-control-color);
+
+    z-index: 1;
+}
+
+.video__control-slider-line {
+    background: var(--video-slider-color);
+    opacity: var(--video-slider-opacity);
+}
+
+/* __overlay */
+
+.video__overlay {
+    inset: 0;
+    position: absolute;
+    z-index: 1;
+}
+
+.video__overlay-button,
+.video__overlay-dimmer,
+.video__overlay-shadow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.video__overlay-button {
+    z-index: 1;
+}
+
+.video__overlay-button svg {
+    width: 100%;
+}
+
+.video__overlay-button svg g {
+    fill: var(--video-control-color);
+}
+
+.video__overlay-dimmer,
+.video__overlay-shadow {
+    width: 100%;
+    height: 100%;
+}
+
+.video__overlay-dimmer {
+    background: var(--video-overlay-dimmer-color);
+}
+
+.video__overlay-shadow {
+    background: var(--video-overlay-shadow-color);
+}
+
+/* D E S K T O P */
+
+@media (min-width: 768px) {
+
+    /* .video */
+
+    .video {
+        border-radius: 5px;
+        clip-path: inset(0 round 5px);
+
+        cursor: pointer;
+    }
+
+    /* __control */
+
+    .video__control {
+        width: calc(100% - 20px);
+    }
+
+    .video__control-button,
+    .video__control-slider {
+        height: 60px;
+    }
+
+    /* __overlay */
+
+    .video__overlay-button svg {
+        filter: drop-shadow(0 0 5vw rgba(0, 0, 0, 1));
+    }
+
+    .video__overlay-shadow {
+        -webkit-mask: linear-gradient(rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.25));
+        mask: linear-gradient(rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.25));
+    }
+
+}
+
+/* M O B I L E */
+
+@media (max-width: 767px) {
+
+    /* .video */
+
+    .video {
+        border-radius: 3px;
+        clip-path: inset(0 round 3px);
+    }
+
+    /* __overlay */
+
+    .video__overlay-button svg {
+        filter: drop-shadow(0 0 8vw rgba(0, 0, 0, 1));
+    }
+
+    .video__overlay-button {
+        width: 15%;
+    }
+
+}

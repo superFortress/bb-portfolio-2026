@@ -91,4 +91,7 @@
     --video-overlay-shadow-color: var(--color-black);
     --video-overlay-shadow-opacity: 0.2;
 
+    --video-slider-color: var(--color-black);
+    --video-slider-opacity: 0.25;
+
 }
