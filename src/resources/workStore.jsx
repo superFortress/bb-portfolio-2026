@@ -39,8 +39,8 @@ export default {
         child: lazy(() => import('#components/pages/Portfolio')),
         color: 'var(--color-white)',
         image: '/assets/images/work/agrico/thumb.jpg',
-        ratio: 1.75,
-        roles: [role.illustrate, role.storyboard]
+        ratio: 1.6,
+        roles: [role.creative, role.graphic, role.storyboard]
     },
 
     cloud: {
@@ -50,7 +50,7 @@ export default {
         child: lazy(() => import('#components/pages/Portfolio')),
         color: 'var(--color-white)',
         image: '/assets/images/work/cloud/thumb.jpg',
-        ratio: 1.25,
+        ratio: 1,
         roles: [role.animate, role.storyboard]
     },
 
@@ -61,7 +61,7 @@ export default {
         child: lazy(() => import('#components/pages/Portfolio')),
         color: 'var(--color-white)',
         image: '/assets/images/work/creamy/thumb.jpg',
-        ratio: 1.5,
+        ratio: 1.4,
         roles: [role.animate, role.storyboard]
     },
 
@@ -72,8 +72,8 @@ export default {
         child: lazy(() => import('#components/pages/Portfolio')),
         color: 'var(--color-white)',
         image: '/assets/images/work/eread/thumb.jpg',
-        ratio: 1.75,
-        roles: [role.graphic, role.write]
+        ratio: 1.6,
+        roles: [role.creative, role.graphic]
     },
 
     escience: {
@@ -83,8 +83,8 @@ export default {
         child: lazy(() => import('#components/pages/Portfolio')),
         color: 'var(--color-white)',
         image: '/assets/images/work/escience/thumb.jpg',
-        ratio: 1.5,
-        roles: [role.graphic]
+        ratio: 1.4,
+        roles: [role.creative, role.illustrate]
     },
 
     guardian: {
@@ -94,8 +94,8 @@ export default {
         child: lazy(() => import('#components/pages/Portfolio')),
         color: 'var(--color-white)',
         image: '/assets/images/work/guardian/thumb.jpg',
-        ratio: 1.5,
-        roles: [role.animate, role.illustrate, role.storyboard]
+        ratio: 1.4,
+        roles: [role.animate, role.creative, role.storyboard]
     },
 
     hoofd: {
@@ -105,7 +105,7 @@ export default {
         child: lazy(() => import('#components/pages/Portfolio')),
         color: 'var(--color-white)',
         image: '/assets/images/work/hoofd/thumb.jpg',
-        ratio: 1.5,
+        ratio: 1.4,
         roles: [role.animate, role.storyboard]
     },
 
@@ -116,8 +116,8 @@ export default {
         child: lazy(() => import('#components/pages/Portfolio')),
         color: 'var(--color-white)',
         image: '/assets/images/work/jip/thumb.jpg',
-        ratio: 1.75,
-        roles: [role.animate, role.illustrate, role.storyboard]
+        ratio: 1.4,
+        roles: [role.animate, role.storyboard]
     },
 
     monster: {
@@ -127,8 +127,8 @@ export default {
         child: lazy(() => import('#components/pages/Portfolio')),
         color: 'var(--color-white)',
         image: '/assets/images/work/monster/thumb.jpg',
-        ratio: 1.5,
-        roles: [role.animate, role.direct, role.storyboard]
+        ratio: 1.4,
+        roles: [role.animate, role.lead, role.storyboard]
     },
 
     noord: {
@@ -138,8 +138,8 @@ export default {
         child: lazy(() => import('#components/pages/Portfolio')),
         color: 'var(--color-white)',
         image: '/assets/images/work/noord/thumb.jpg',
-        ratio: 1.75,
-        roles: [role.illustrate, role.storyboard]
+        ratio: 1.4,
+        roles: [role.creative, role.storyboard]
     },
 
     nova: {
@@ -147,10 +147,10 @@ export default {
         brand: LogoNovaCollege,
         brief: <>Let teachers manage their students, and let us manage their timetables.</>,
         child: lazy(() => import('#components/pages/Portfolio')),
-        color: 'var(--color-fairy)',
+        color: '#342278',
         image: '/assets/images/work/nova/thumb.jpg',
-        ratio: 1.75,
-        roles: [role.animate, role.illustrate, role.storyboard]
+        ratio: 1.6,
+        roles: [role.animate, role.storyboard]
     },
 
     opa: {
@@ -160,7 +160,7 @@ export default {
         child: lazy(() => import('#components/pages/Portfolio')),
         color: 'var(--color-white)',
         image: '/assets/images/work/opa/thumb.jpg',
-        ratio: 1.5,
+        ratio: 1.6,
         roles: [role.illustrate]
     },
 
@@ -171,8 +171,8 @@ export default {
         child: lazy(() => import('#components/pages/Portfolio')),
         color: 'var(--color-white)',
         image: '/assets/images/work/pink/thumb.jpg',
-        ratio: 1.5,
-        roles: [role.graphic]
+        ratio: 1.4,
+        roles: [role.graphic, role.lead]
     },
 
     pool: {
@@ -182,8 +182,8 @@ export default {
         child: lazy(() => import('#components/pages/Portfolio')),
         color: 'var(--color-white)',
         image: '/assets/images/work/pool/thumb.jpg',
-        ratio: 1.5,
-        roles: [role.animate, role.illustrate, role.storyboard]
+        ratio: 1,
+        roles: [role.animate, role.storyboard]
     },
 
     rabo: {
@@ -193,8 +193,8 @@ export default {
         child: lazy(() => import('#components/pages/Portfolio')),
         color: 'var(--color-white)',
         image: '/assets/images/work/rabo/thumb.jpg',
-        ratio: 1.75,
-        roles: [role.animate, role.graphic, role.storyboard]
+        ratio: 1.4,
+        roles: [role.animate, role.storyboard]
     },
 
     rinkel: {
@@ -204,8 +204,8 @@ export default {
         child: lazy(() => import('#components/pages/Portfolio')),
         color: 'var(--color-white)',
         image: '/assets/images/work/rinkel/thumb.jpg',
-        ratio: 2,
-        roles: [role.animate, role.concept, role.storyboard]
+        ratio: 1.8,
+        roles: [role.animate, role.creative, role.storyboard]
     },
 
     talkthick: {
@@ -215,8 +215,8 @@ export default {
         child: lazy(() => import('#components/pages/Portfolio')),
         color: 'var(--color-white)',
         image: '/assets/images/work/talkthick/thumb.jpg',
-        ratio: 1.75,
-        roles: [role.frontend, role.graphic]
+        ratio: 1.6,
+        roles: [role.frontend, role.graphic, role.lead]
     },
 
     traffic: {
@@ -224,10 +224,10 @@ export default {
         brand: LogoTavaana,
         brief: <>A young girl seeks happiness on the streets of Tehran.</>,
         child: lazy(() => import('#components/pages/Portfolio')),
-        color: 'var(--color-coral)',
+        color: '#e4354d',
         image: '/assets/images/work/traffic/thumb.jpg',
-        ratio: 1.75,
-        roles: [role.animate, role.illustrate, role.storyboard]
+        ratio: 1.4,
+        roles: [role.animate, role.storyboard]
     },
 
     vocol: {
@@ -237,8 +237,8 @@ export default {
         child: lazy(() => import('#components/pages/Portfolio')),
         color: 'var(--color-white)',
         image: '/assets/images/work/vocol/thumb.jpg',
-        ratio: 1.5,
-        roles: [role.frontend, role.graphic]
+        ratio: 1.6,
+        roles: [role.frontend, role.graphic, role.lead]
     },
 
     year: {
@@ -248,8 +248,8 @@ export default {
         child: lazy(() => import('#components/pages/Portfolio')),
         color: 'var(--color-white)',
         image: '/assets/images/work/year/thumb.jpg',
-        ratio: 1.25,
-        roles: [role.animate, role.graphic]
+        ratio: 1.4,
+        roles: [role.animate, role.lead]
     }
 
 };

@@ -7,19 +7,19 @@ import { icon } from '#assets/vector/index.jsx';
 
 export default {
 
-    // Meta
-    
-    all: {
-        alias: 'All',
+    // Conception
+
+    create: {
+        alias: 'Project Authorship',
         image: icon.star,
         order: 0
     },
 
     // Direction
 
-    produce: {
-        alias: 'Production',
-        image: icon.lead,
+    creative: {
+        alias: 'Creative Lead',
+        image: icon.shapes,
         order: 1
     },
 
@@ -29,24 +29,10 @@ export default {
         order: 1
     },
 
-    // Pre-production
-
-    concept: {
-        alias: 'Concept Design',
-        image: icon.shapes,
-        order: 2
-    },
-
-    storyboard: {
-        alias: 'Storyboard',
-        image: icon.board,
-        order: 2
-    },
-
-    write: {
-        alias: 'Script',
-        image: icon.file,
-        order: 2
+    lead: {
+        alias: 'Project Lead',
+        image: icon.lead,
+        order: 1
     },
 
     // Production
@@ -54,30 +40,44 @@ export default {
     animate: {
         alias: 'Animation',
         image: icon.motion,
-        order: 3
+        order: 2
     },
 
     graphic: {
         alias: 'Graphic Design',
         image: icon.design,
-        order: 3
+        order: 2
     },
 
     frontend: {
-        alias: 'Web Development',
+        alias: 'Development',
         image: icon.code,
-        order: 3
+        order: 2
     },
 
     illustrate: {
         alias: 'Illustration',
         image: icon.draft,
-        order: 3
+        order: 2
     },
 
     voice: {
         alias: 'Voice Acting',
         image: icon.voice,
+        order: 2
+    },
+
+    // Pre-production
+
+    storyboard: {
+        alias: 'Storyboard',
+        image: icon.board,
+        order: 3
+    },
+
+    write: {
+        alias: 'Script',
+        image: icon.file,
         order: 3
     }
 

@@ -12,7 +12,7 @@ import '#styles/components/pages/PortfolioItem.css';
 
 // Modules
 import { AnimatePresence, motion } from 'motion/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 // Utils
 import useClient from '#utils/hook/useClient.js';
@@ -65,6 +65,14 @@ export default function Portfolio() {
         setItemLabel(label);
         setItemArray([]);
     };
+
+    // E F F E C T
+
+    // Sync item array with work array
+    useEffect(() => {
+        setItemLabel('All');
+        setItemArray(workArray);
+    }, [workArray]);
 
     // R E T U R N
 

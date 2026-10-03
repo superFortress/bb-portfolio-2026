@@ -27,7 +27,7 @@ export default function PortfolioItem({
 
     // Order roles by importance
     const roleArray = roles.toSorted((a, b) => (
-        b.order - a.order ||
+        a.order - b.order ||
         a.alias.localeCompare(b.alias)
     ));
 
