@@ -16,7 +16,7 @@ hr, .rule {
     height: 1px;
 }
 
-/* .rule--strong */
+/* --strong */
 
 .rule--strong {
     background: var(--rule-strong-border-color);
