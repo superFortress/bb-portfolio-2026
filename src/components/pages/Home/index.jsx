@@ -10,11 +10,13 @@ import Button from '#components/widgets/Button.jsx';
 // Modules
 import { useRef, useState } from 'react';
 
+// Stores
+import { useClientStore } from '#stores/useClientStore.js';
+
 // Styles
 import '#styles/components/pages/Home.css';
 
 // Utils
-import useClient from '#utils/hook/useClient.js';
 import useLayoutObserver from '#utils/hook/useLayoutObserver.js';
 
 // E X P O R T
@@ -23,14 +25,19 @@ export default function Home() {
 
     // A S S I G N
 
-    // Reference
+    // References
     const bannerRef = useRef(null);
     const parentRef = useRef(null);
 
-    // State
+    // States
     const [bannerFrame, setBannerFrame] = useState({ width: 0, height: 0 });
     const [bannerPoint, setBannerPoint] = useState({ x: 0, y: 0 });
     const [canvasFrame, setCanvasFrame] = useState({ width: 0, height: 0 });
+
+    // Stores
+    const device = useClientStore(state => state.device);
+    const isDesktop = device !== 'mobile';
+    const isMobile = device === 'mobile';
 
     // E F F E C T
 
@@ -50,9 +57,6 @@ export default function Home() {
         setCanvasFrame({ width, height });
     }, 50);
 
-    // Observe viewport
-    const client = useClient(null, 50);
-
     // R E T U R N
 
     return <div className="home" ref={parentRef}>
@@ -69,10 +73,10 @@ export default function Home() {
                 />
             </figure>
             <span className="home__banner-info">
-                {client.onDesktop && <>
+                {isDesktop && <>
                     Hi, my name is Boriz. I'm a <span>creative director</span> who lives and works near Amsterdam. Nice to meet you!
                 </>}
-                {client.onMobile && <>
+                {isMobile && <>
                     I'm Boriz, a <span>creative director</span> from Amsterdam. Nice to meet you!
                 </>}
             </span>
@@ -95,7 +99,6 @@ export default function Home() {
             bannerFrame={bannerFrame}
             bannerPoint={bannerPoint}
             canvasFrame={canvasFrame}
-            client={client}
         />
 
     </div>;

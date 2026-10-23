@@ -4,6 +4,9 @@
 import { Bodies, Composite, World } from 'matter-js';
 import { useEffect, useRef } from 'react';
 
+// Stores
+import { useClientStore } from '#stores/useClientStore.js';
+
 // Utils
 import randomEntry from '#utils/random/randomEntry.js';
 
@@ -18,7 +21,6 @@ export default function CanvasShapes({
 
     // Geometry
     canvasFrame = {},
-    client = {},
 
     // Matter
     engine = null
@@ -32,17 +34,21 @@ export default function CanvasShapes({
     const removalIntervalMapRef = useRef(new Map());
     const removalTimeoutMapRef = useRef(new Map());
 
+    // Stores
+    const device = useClientStore(state => state.device);
+    const isDesktop = device !== 'mobile';
+
     // F U N C T I O N
 
     const createShapes = () => {
 
         // Configuration
-        const decay = client.onDesktop ? 6000 : 4000;
-        const force = client.onDesktop ? 0.06 : 0.024;
+        const decay = isDesktop ? 6000 : 4000;
+        const force = isDesktop ? 0.06 : 0.024;
         const frequency = 1000 / 1.2;
-        const friction = client.onDesktop ? 0.3 : 0;
-        const inertia = client.onDesktop ? 600 : 1200;
-        const scale = client.onDesktop ? 0.75 : 0.55;
+        const friction = isDesktop ? 0.3 : 0;
+        const inertia = isDesktop ? 600 : 1200;
+        const scale = isDesktop ? 0.75 : 0.55;
         const spread = 0.75;
 
         // Properties

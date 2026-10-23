@@ -12,13 +12,15 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'motion/react';
 
+// Stores
+import { useClientStore } from '#stores/useClientStore.js';
+
 // Styles
 import '#styles/components/layout/Header.css';
 
 // Utils
 import capitalize from '#utils/string/capitalize.js';
 import pathToArray from '#utils/filesystem/pathToArray.js';
-import useClient from '#utils/hook/useClient.js';
 
 // E X P O R T
 
@@ -29,8 +31,11 @@ export default function Header() {
     // States
     const [pathArray, setPathArray] = useState([]);
 
+    // Stores
+    const device = useClientStore(state => state.device);
+    const isDesktop = device !== 'mobile';
+
     // Variables
-    const client = useClient();
     const location = useLocation();
 
     // E F F E C T
@@ -55,7 +60,7 @@ export default function Header() {
 
             {/* Path */}
 
-            {client.onDesktop && <ul className="app-header__path">
+            {isDesktop && <ul className="app-header__path">
                 <AnimatePresence>
                     {pathArray.map((path) => (
                         <motion.li
@@ -84,7 +89,7 @@ export default function Header() {
             {/* Menu */}
 
             <ul className="app-header__menu">
-                {client.onDesktop && <li>
+                {isDesktop && <li>
                     <Button to="/" onClick={(event) => {
                         if (location.pathname === '/') {
                             event.preventDefault();

@@ -4,13 +4,15 @@
 import { Bodies, World } from 'matter-js';
 import { useEffect, useRef } from 'react';
 
+// Stores
+import { useClientStore } from '#stores/useClientStore.js';
+
 // E X P O R T
 
 export default function CanvasContainer({
 
     // Geometry
     canvasFrame = {},
-    client = {},
 
     // Matter
     engine = null
@@ -21,6 +23,10 @@ export default function CanvasContainer({
 
     // Reference
     const bodyArrayRef = useRef([]);
+
+    // Stores
+    const client = useClientStore();
+    const isDesktop = client.device !== 'mobile';
 
     // F U N C T I O N
 
@@ -60,7 +66,7 @@ export default function CanvasContainer({
             // Properties
             const width = bodyWidth;
             const height = canvas.height;
-            const x = client.onDesktop
+            const x = isDesktop
                 ? canvas.width * (left ? -0.1 : 1.1)
                 : canvas.width * (left ? -0.25 : 1.25);
             const y = canvas.height / 2;

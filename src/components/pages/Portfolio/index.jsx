@@ -14,8 +14,8 @@ import '#styles/components/pages/PortfolioItem.css';
 import { AnimatePresence, motion } from 'motion/react';
 import { useEffect, useState } from 'react';
 
-// Utils
-import useClient from '#utils/hook/useClient.js';
+// Stores
+import { useClientStore } from '#stores/useClientStore.js';
 
 // M O T I O N
 
@@ -52,15 +52,19 @@ export default function Portfolio() {
     // A S S I G N
 
     // States
-    const client = useClient();
     const [itemArray, setItemArray] = useState(workArray);
     const [itemIndex, setItemIndex] = useState(-1);
     const [itemLabel, setItemLabel] = useState('All');
 
+    // Stores
+    const device = useClientStore(state => state.device);
+    const isDesktop = device !== 'mobile';
+    const isMobile = device === 'mobile';
+
     // F U N C T I O N
 
     const setLabel = (label) => {
-        if (client.onMobile) return;
+        if (isMobile) return;
         if (label === itemLabel) return;
         setItemLabel(label);
         setItemArray([]);
@@ -93,14 +97,14 @@ export default function Portfolio() {
                         onMouseEnter={() => setItemIndex(index)}
                         onMouseLeave={() => setItemIndex(-1)}
                         // Motion
-                        initial={client.onDesktop ? start() : {}}
-                        animate={client.onDesktop ? enter(index) : {}}
-                        exit={client.onDesktop ? leave(index) : {}}
+                        initial={isDesktop ? start() : {}}
+                        animate={isDesktop ? enter(index) : {}}
+                        exit={isDesktop ? leave(index) : {}}
                     >
                         <PortfolioItem
                             {...item}
                             focus={index === itemIndex}
-                            ratio={client.onDesktop ? item.ratio : 'auto'}
+                            ratio={isDesktop ? item.ratio : 'auto'}
                             setLabel={setLabel}
                         />
                     </motion.li>

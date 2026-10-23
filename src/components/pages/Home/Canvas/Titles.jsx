@@ -4,6 +4,9 @@
 import { Bodies, Composite, Constraint, World } from 'matter-js';
 import { useEffect, useRef } from 'react';
 
+// Stores
+import { useClientStore } from '#stores/useClientStore.js';
+
 // E X P O R T
 
 export default function CanvasTitles({
@@ -15,7 +18,6 @@ export default function CanvasTitles({
     // Geometry
     bannerFrame = {},
     bannerPoint = {},
-    client = {},
 
     // Matter
     engine = null
@@ -28,6 +30,10 @@ export default function CanvasTitles({
     const anchorMapRef = useRef(new Map());
     const figureMapRef = titleBodyMapRef;
     const tetherMapRef = useRef(new Map());
+
+    // Stores
+    const device = useClientStore(state => state.device);
+    const isDesktop = device !== 'mobile';
 
     // F U N C T I O N
 
@@ -105,7 +111,7 @@ export default function CanvasTitles({
                 bodyA: left ? anchorLeft : anchorRight,
                 bodyB: figure,
                 length: width,
-                stiffness: client.onDesktop ? 0.02 : 0.05,
+                stiffness: isDesktop ? 0.02 : 0.05,
                 render: {
                     visible: false
                 }

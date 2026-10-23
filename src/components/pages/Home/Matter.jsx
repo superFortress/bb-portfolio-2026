@@ -23,8 +23,7 @@ export default function Matter({
 
     bannerFrame = {},
     bannerPoint = {},
-    canvasFrame = {},
-    client = {}
+    canvasFrame = {}
 
 }) {
 
@@ -76,7 +75,6 @@ export default function Matter({
         <CanvasContainer
             // Geometry
             canvasFrame={canvasFrame}
-            client={client}
             // Matter
             engine={engine}
         />
@@ -88,7 +86,6 @@ export default function Matter({
             shapeBodyMapRef={shapeBodyMapRef}
             // Geometry
             canvasFrame={canvasFrame}
-            client={client}
             // Matter
             engine={engine}
         />
@@ -100,7 +97,6 @@ export default function Matter({
             // Geometry
             bannerFrame={bannerFrame}
             bannerPoint={bannerPoint}
-            client={client}
             // Matter
             engine={engine}
         />

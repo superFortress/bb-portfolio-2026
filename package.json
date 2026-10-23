@@ -17,7 +17,8 @@
         "react-dom": "^19.1.0",
         "react-router-dom": "^7.15.1",
         "styled-components": "^6.4.2",
-        "vite-plugin-svgr": "^5.2.0"
+        "vite-plugin-svgr": "^5.2.0",
+        "zustand": "^5.0.15"
     },
     "devDependencies": {
         "@eslint/js": "^9.25.0",
@@ -35,6 +36,7 @@
         "#assets/*": "./src/assets/*",
         "#components/*": "./src/components/*",
         "#resources/*": "./src/resources/*",
+        "#stores/*": "./src/stores/*",
         "#styles/*": "./src/styles/*",
         "#utils/*": "./src/utils/*"
     }
