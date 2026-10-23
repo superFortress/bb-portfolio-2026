@@ -1,0 +1,125 @@
+/* G E N E R A L */
+
+/* .carousel */
+
+.carousel {
+    width: 100vw;
+
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: var(--interactive-z-index);
+
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.carousel > * {
+    width: var(--app-width);
+}
+
+/* __control */
+
+ul.carousel__control {
+    display: flex;
+    flex-wrap: none;
+    justify-content: center;
+}
+
+ul.carousel__control li button {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+ul.carousel__control li button::after {
+    content: '';
+
+    background: var(--carousel-control-color);
+    border-radius: 50%;
+    opacity: var(--carousel-control-opacity);
+
+    transition: all 0.15s;
+}
+
+ul.carousel__control li[aria-current] button::after {
+    background: var(--carousel-control-color-active);
+    opacity: var(--carousel-control-opacity-active);
+}
+
+/* __gallery */
+
+ul.carousel__gallery {
+    position: relative;
+}
+
+ul.carousel__gallery li {
+    width: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    overflow: hidden;
+}
+
+ul.carousel__gallery li img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+}
+
+/* D E S K T O P */
+
+@media (min-width: 768px) {
+
+    /* __control */
+
+    ul.carousel__control {
+        padding: 10px 0;
+    }
+
+    ul.carousel__control li button {
+        width: 45px;
+        height: 40px;
+    }
+
+    ul.carousel__control li button::after {
+        width: 10px;
+        height: 10px;
+    }
+
+    /* __gallery */
+
+    ul.carousel__gallery li {
+        border-radius: 3px;
+    }
+
+}
+
+/* M O B I L E */
+
+@media (max-width: 767px) {
+
+    /* __control */
+
+    ul.carousel__control li button {
+        width: 35px;
+        height: 40px;
+    }
+
+    ul.carousel__control li button::after {
+        width: 8px;
+        height: 8px;
+    }
+
+    /* __gallery */
+
+    ul.carousel__gallery li {
+        border-radius: 2px;
+    }
+
+}
