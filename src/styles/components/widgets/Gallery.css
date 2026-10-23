@@ -1,0 +1,45 @@
+/* G E N E R A L */
+
+/* .gallery */
+
+ul.gallery {
+    display: grid;
+}
+
+/* D E S K T O P */
+
+@media (min-width: 768px) {
+
+    /* .gallery */
+
+    ul.gallery {
+        gap: 20px;
+    }
+
+    ul.gallery li figure figcaption {
+        font-size: 13px;
+        line-height: 15px;
+
+        margin: 8px 0 0;
+    }
+
+}
+
+/* M O B I L E */
+
+@media (max-width: 767px) {
+
+    /* .gallery */
+
+    ul.gallery {
+        gap: 15px;
+    }
+
+    ul.gallery li figure figcaption {
+        font-size: 12px;
+        line-height: 15px;
+
+        margin: 5px 0 0;
+    }
+
+}
