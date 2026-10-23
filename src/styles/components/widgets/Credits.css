@@ -1,0 +1,171 @@
+/* G E N E R A L */
+
+/* .credits */
+
+.credits {
+    color: var(--credits-color);
+
+    position: relative;
+}
+
+/* __list */
+
+.credits__list-item {
+    break-inside: avoid;
+
+    position: relative;
+}
+
+.credits__list-item:first-child dd {
+    font-family: "Radio Canada Big", sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+}
+
+/* D E S K T O P */
+
+@media (min-width: 768px) {
+
+    /* .credits */
+
+    .credits {
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 25px;
+    }
+
+    .credits b {
+        font-weight: 650;
+    }
+
+    /* __list */
+
+    .credits__list {
+        padding: 30px 0 0;
+
+        columns: 4 auto;
+        column-gap: 40px;
+    }
+
+    .credits__list::before {
+        content: '';
+
+        background: var(--credits-color);
+        opacity: var(--rule-border-opacity);
+        width: 100%;
+        height: 1px;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .credits__list-item {
+        padding: 15px 0;
+    }
+
+    .credits__list-item:first-child dd {
+        font-size: 30px;
+        line-height: 34px;
+    }
+
+    .credits__list-item dt {
+        margin: 0 0 10px;
+    }
+
+    .credits__list-item svg {
+        max-width: 160px;
+        max-height: 40px;
+    }
+}
+
+/* T A B L E T */
+
+@media (max-width: 1200px) and (min-width: 768px) {
+
+    /* __list */
+
+    .credits__list {
+        columns: 3 auto;
+    }
+}
+
+/* M O B I L E */
+
+@media (max-width: 767px) {
+
+    /* .credits */
+
+    .credits {
+        font-size: 15px;
+        font-weight: 350;
+        line-height: 22px;
+
+        z-index: var(--interactive-z-index);
+    }
+
+    .credits b {
+        font-weight: 650;
+    }
+
+    .credits button {
+        font-weight: inherit;
+
+        padding: 10px 0;
+        width: 100%;
+
+        position: relative;
+
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .credits button::after {
+        content: '';
+
+        background: var(--credits-color);
+        opacity: var(--credits-color);
+        width: 100%;
+        height: 1px;
+
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    .credits button span {
+        margin: -1px 0 0;
+    }
+
+    .credits button svg {
+        opacity: 0.85;
+        width: 18px;
+    }
+
+    /* __list */
+
+    .credits__list {
+        columns: 2 auto;
+        column-gap: 25px;
+    }
+
+    .credits__list-item {
+        padding: 25px 0 0;
+    }
+
+    .credits__list-item:first-child dd {
+        font-size: 22px;
+        line-height: 26px;
+    }
+
+    .credits__list-item dt {
+        margin: 0 0 6px;
+    }
+
+    .credits__list-item svg {
+        max-width: 120px;
+        max-height: 40px;
+    }
+
+}
