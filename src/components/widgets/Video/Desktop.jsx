@@ -9,21 +9,28 @@ import { motion } from 'motion/react';
 
 // Utils
 import clamp from '#utils/clamp/clamp.js';
-import pathToString from '#utils/string/pathToString.js';
 import useListener from '#utils/hook/useListener.js';
 
 // E X P O R T
 
-export default function Desktop(props) {
+export default function Desktop({
+    
+    alt = '',
+    color = undefined,
+    isActive = true,
+    poster = '',
+    src = ''
+
+}) {
 
     // A S S I G N
 
-    // Reference
+    // References
     const audioSliderRef = useRef(null);
     const videoRef = useRef(null);
     const videoSliderRef = useRef(null);
 
-    // State
+    // States
     const [isAdjustingAudio, setAdjustingAudio] = useState(false);
     const [isAdjustingVideo, setAdjustingVideo] = useState(false);
     const [isHoveringVideo, setHoveringVideo] = useState(false);
@@ -33,18 +40,11 @@ export default function Desktop(props) {
     const [videoPlaying, setVideoPlaying] = useState(false);
     const [videoStopped, setVideoStopped] = useState(true);
 
-    // Condition
-    const isActive = props.isActive ?? true;
+    // Conditions
     const showControl =
         videoStopped ? false :
             isHoveringVideo ? true :
                 videoPlaying ? false : true;
-
-    // Variable
-    const color = props.color || undefined;
-    const image = props.poster || '/assets/images/utility/missing-image.png';
-    const label = props.alt || pathToString(props.src, 2, true);
-    const video = props.src || null;
 
     // F U N C T I O N
 
@@ -212,8 +212,8 @@ export default function Desktop(props) {
         <div className="video__content">
             <motion.img
                 loading="lazy"
-                alt={label}
-                src={image}
+                alt={alt}
+                src={poster}
                 initial={{
                     opacity: 1,
                     scale: 1
@@ -230,7 +230,7 @@ export default function Desktop(props) {
             <motion.video
                 preload="auto"
                 ref={videoRef}
-                src={video}
+                src={src}
                 animate={{
                     opacity: videoStopped ? 0 : 1
                 }}
@@ -333,10 +333,10 @@ export default function Desktop(props) {
             <motion.div
                 className="video__overlay-dimmer"
                 initial={{
-                    opacity: 0
+                    opacity: 0.1
                 }}
                 animate={{
-                    opacity: videoStopped && !isHoveringVideo ? 0.25 : 0
+                    opacity: videoStopped && !isHoveringVideo ? 0.1 : 0
                 }}
                 transition={{
                     type: 'spring',

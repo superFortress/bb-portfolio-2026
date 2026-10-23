@@ -8,12 +8,19 @@ import { useEffect, useRef, useState } from 'react';
 import { motion } from 'motion/react';
 
 // Utils
-import pathToString from '#utils/string/pathToString.js';
 import useListener from '#utils/hook/useListener.js';
 
 // E X P O R T
 
-export default function Mobile(props) {
+export default function Mobile({
+    
+    alt = '',
+    color = undefined,
+    isActive = true,
+    poster = '',
+    src = ''
+
+}) {
 
     // A S S I G N
 
@@ -25,14 +32,7 @@ export default function Mobile(props) {
     const [videoStopped, setVideoStopped] = useState(true);
 
     // Condition
-    const isActive = props.isActive ?? true;
     const showOverlay = videoPlaying ? false : true;
-
-    // Variable
-    const color = props.color || undefined;
-    const image = props.poster || '/asset/image/utility/missing-image.png';
-    const label = props.alt || pathToString(props.src, 2, true);
-    const video = props.src || null;
 
     // F U N C T I O N
 
@@ -79,8 +79,8 @@ export default function Mobile(props) {
 
         <div className="video__content">
             <motion.img
-                alt={label}
-                src={image}
+                alt={alt}
+                src={poster}
                 initial={{
                     opacity: 1
                 }}
@@ -91,7 +91,7 @@ export default function Mobile(props) {
             <motion.video
                 preload="auto"
                 ref={videoRef}
-                src={video}
+                src={src}
                 initial={{
                     opacity: 0
                 }}
@@ -125,10 +125,10 @@ export default function Mobile(props) {
             <motion.div
                 className="video__overlay-dimmer"
                 initial={{
-                    opacity: 0.25
+                    opacity: 0.1
                 }}
                 animate={{
-                    opacity: showOverlay ? 0.25 : 0
+                    opacity: showOverlay ? 0.1 : 0
                 }}
                 transition={{
                     type: 'spring',
