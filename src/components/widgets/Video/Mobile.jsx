@@ -14,7 +14,7 @@ import useListener from '#utils/hook/useListener.js';
 
 export default function Mobile({
     
-    alt = '',
+    alt = undefined,
     color = undefined,
     isActive = true,
     poster = '',
@@ -79,6 +79,7 @@ export default function Mobile({
 
         <div className="video__content">
             <motion.img
+                loading="lazy"
                 alt={alt}
                 src={poster}
                 initial={{

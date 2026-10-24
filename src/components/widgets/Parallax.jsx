@@ -85,6 +85,7 @@ export default function Parallax({
                 overflow: 'hidden'
             }}>
                 <img
+                    loading="lazy"
                     ref={item.ref}
                     src={item.src}
                     style={{

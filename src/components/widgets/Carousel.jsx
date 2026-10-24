@@ -131,6 +131,7 @@ export default function Carousel({
                     <figure>
                         {isImage && <img
                             alt={item.alt || undefined}
+                            loading="lazy"
                             src={item.src}
                         />}
                         {isVideo && <Video

@@ -57,6 +57,7 @@ export default function Gallery({
                 <figure>
                     <img
                         alt={item.alt || undefined}
+                        loading="lazy"
                         src={item.src}
                         style={{ backgroundColor: color || 'transparent' }}
                     />

@@ -15,7 +15,7 @@ import useListener from '#utils/hook/useListener.js';
 
 export default function Desktop({
     
-    alt = '',
+    alt = undefined,
     color = undefined,
     isActive = true,
     poster = '',
