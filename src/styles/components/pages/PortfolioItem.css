@@ -13,7 +13,7 @@
     overflow: hidden;
 }
 
-/* .portfolio-item__about */
+/* __about */
 
 .portfolio-item__about > h1 {
     font-size: 18px;
@@ -46,7 +46,7 @@
     gap: 5px;
 }
 
-/* .portfolio-item__image */
+/* __image */
 
 .portfolio-item__image {
     background-position: center;
@@ -78,7 +78,7 @@
         transition: all 0.3s;
     }
 
-    /* .portfolio-item__about */
+    /* __about */
 
     .portfolio-item__about {
         padding: 10px 15px;
@@ -103,7 +103,7 @@
         height: 15px;
     }
 
-    /* .portfolio-item__brand */
+    /* __brand */
 
     .portfolio-item__brand {
         max-width: 135px;
@@ -127,7 +127,7 @@
         height: 240px;
     }
 
-    /* .portfolio-item__about */
+    /* __about */
 
     .portfolio-item__about {
         padding: 12px 12px 10px;
@@ -141,7 +141,7 @@
         height: 14px;
     }
 
-    /* .portfolio-item__brand */
+    /* __brand */
 
     .portfolio-item__brand  {
         max-width: 120px;
