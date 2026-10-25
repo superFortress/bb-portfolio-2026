@@ -13,7 +13,8 @@ export default function Tiles({
     array = [],
     aspectRatio = 16 / 9,
     color = 'transparent',
-    minWidth = 0
+    minWidth = 0,
+    rounded = false
 
 }) {
 
@@ -54,13 +55,18 @@ export default function Tiles({
     // R E T U R N
 
     return <ul ref={listRef} className="tiles" style={{
+        borderRadius: rounded ? isDesktop ? 3 : 2 : undefined,
+
         display: 'grid',
-        gridTemplateColumns: `repeat(${columnCount}, 1fr)`
+        gridTemplateColumns: `repeat(${columnCount}, 1fr)`,
+        overflow: 'hidden'
     }}>
         {itemArray.map((item, index) => (
             <li key={index} style={{
                 aspectRatio,
+                backgroundColor: color,
                 minWidth: 0,
+
                 overflow: 'hidden'
             }}>
                 <img
