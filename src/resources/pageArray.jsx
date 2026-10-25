@@ -5,7 +5,7 @@ import { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
 
 // Resources
-import workStore from './workStore';
+import workRecord from './workRecord';
 
 // E X P O R T
 
@@ -29,7 +29,7 @@ export default [{
 
 },
 
-...Object.entries(workStore).map(([key, work]) => ({
+...Object.entries(workRecord).map(([key, work]) => ({
     alias: work.alias.props.children,
     child: work.child,
     route: `/work/${key}`
