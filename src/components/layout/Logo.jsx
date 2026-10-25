@@ -25,6 +25,8 @@ const StyledLink = styled(Link)`
     pointer-events: all;
     user-select: none;
 
+    transition: color 0.5s;
+
     @media (min-width: 768px) {
         font-size: 40px;
 
