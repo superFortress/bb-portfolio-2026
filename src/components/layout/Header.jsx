@@ -12,6 +12,9 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'motion/react';
 
+// Resources
+import pageArray from '#resources/pageArray.jsx';
+
 // Stores
 import { useClientStore } from '#stores/useClientStore.js';
 
@@ -19,7 +22,6 @@ import { useClientStore } from '#stores/useClientStore.js';
 import '#styles/components/layout/Header.css';
 
 // Utils
-import capitalize from '#utils/string/capitalize.js';
 import pathToArray from '#utils/filesystem/pathToArray.js';
 
 // E X P O R T
@@ -45,9 +47,8 @@ export default function Header() {
         let currentPath = '';
         const splitPath = pathToArray(location.pathname);
         const pathArray = splitPath.map((path) => {
-            let alias = capitalize(path);
-            if (alias === 'Work') alias = 'Portfolio';
-            let route = currentPath += `/${path}`;
+            const route = currentPath += `/${path}`;
+            const alias = pageArray.find((page) => page.route === route).alias;
             return { alias, route };
         });
         setPathArray(pathArray);
