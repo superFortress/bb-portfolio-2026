@@ -2,7 +2,6 @@
 
 // Components
 import Aside from './Aside';
-import Footer from './Footer';
 import Header from './Header';
 import Section from './Section';
 
@@ -28,7 +27,6 @@ export default function Project({
 
 Object.assign(Project, {
     Aside,
-    Footer,
     Header,
     Section 
 });
