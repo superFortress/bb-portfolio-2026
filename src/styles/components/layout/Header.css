@@ -4,6 +4,8 @@
 
 ul.app-header__menu,
 ul.app-header__path {
+    color: var(--app-header-text-color);
+
     position: fixed;
     z-index: var(--app-header-z-index);
 
