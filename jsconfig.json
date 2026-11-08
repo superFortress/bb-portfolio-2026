@@ -2,7 +2,7 @@
     "compilerOptions": {
         "module": "ESNext",
         "moduleResolution": "Bundler",
-        "resolvePackageJsonImports": true,
+        "resolvePackageJsonImports": false,
         "paths": {
             "#assets/vector/*": ["./src/assets/vector/*"],
             "#components/*": ["./src/components/*"],
