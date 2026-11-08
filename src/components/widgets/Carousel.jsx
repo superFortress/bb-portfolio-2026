@@ -20,7 +20,9 @@ import debounce from '#utils/time/debounce.js';
 
 export default function Carousel({
 
-    array = [],
+    children = [],
+
+    // Arguments
     aspectRatio = 16 / 9,
     color = undefined
 
@@ -50,6 +52,9 @@ export default function Carousel({
 
     // D E F I N E
 
+    // Place children inside array
+    const childArray = [children].flat().map((child) => child.props);
+
     // Calculate item offset
     const itemWidth = listRef?.current?.offsetWidth || 0;
     const itemInset = isDesktop ? 60 : -30;
@@ -70,7 +75,7 @@ export default function Carousel({
     const onDrag = (_, info) => {
         const x = info.offset.x;
         if (x > -50 && x < 50) return;
-        if (x < -50) onClick(Math.min(itemIndex + 1, array.length - 1));
+        if (x < -50) onClick(Math.min(itemIndex + 1, childArray.length - 1));
         if (x > 50) onClick(Math.max(itemIndex - 1, 0));
     };
 
@@ -108,7 +113,7 @@ export default function Carousel({
             initial={{ left: 0 }}
             animate={{ left: listOffset }}
         >
-            {array.map((item, index) => {
+            {childArray.map((item, index) => {
                 const isActive = index === itemIndex;
                 const isHovered = index === itemHoverIndex;
                 const extension = item.src.split('.').pop().toLowerCase();
@@ -130,8 +135,8 @@ export default function Carousel({
                 >
                     <figure>
                         {isImage && <img
-                            alt={item.alt || undefined}
                             loading="lazy"
+                            alt={item.alt || undefined}
                             src={item.src}
                         />}
                         {isVideo && <Video
@@ -145,8 +150,8 @@ export default function Carousel({
 
         {/* Control */}
 
-        {array.length > 1 && <ul className="carousel__control">
-            {array.map((_, index) => {
+        {childArray.length > 1 && <ul className="carousel__control">
+            {childArray.map((_, index) => {
                 const isActive = index === itemIndex;
                 return <li
                     key={index}

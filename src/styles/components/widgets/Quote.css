@@ -1,0 +1,69 @@
+/* G E N E R A L */
+
+/* .quote */
+
+figure.quote {
+    display: flex;
+    flex-direction: column;
+    gap: var(--project-section-gap);
+}
+
+figure.quote blockquote {
+    font-family: "Literata", serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+figure.quote blockquote b {
+    font-weight: 900;
+}
+
+figure.quote figcaption {
+    text-align: right;
+}
+
+/* D E S K T O P
+* * * * * * * */
+
+@media (min-width: 768px) {
+
+    /* .quote */
+
+    figure.quote blockquote {
+        font-size: 32px;
+        line-height: 48px;
+
+        margin: -15px 0 -10px;
+    }
+
+    figure.quote figcaption {
+        font-size: 22px;
+        line-height: 25px;
+
+        margin: -15px 0 -8px;
+    }
+
+}
+
+/* M O B I L E
+* * * * * * */
+
+@media (max-width: 767px) {
+
+    /* .quote */
+    
+    figure.quote blockquote {
+        font-size: 24px;
+        line-height: 32px;
+
+        margin: -10px 0 -5px;
+    }
+
+    figure.quote figcaption {
+        font-size: 18px;
+        line-height: 21px;
+
+        margin: -8px 0 -6px;
+    }
+
+}

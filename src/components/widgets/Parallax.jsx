@@ -9,8 +9,10 @@ import useListener from '#utils/hook/useListener.js';
 // E X P O R T
 
 export default function Parallax({
-    
-    array = [],
+
+    children = [],
+
+    // Arguments
     aspectRatio = undefined,
     color = undefined,
     height = undefined
@@ -25,20 +27,22 @@ export default function Parallax({
     // D E F I N E
 
     // Apply attributes to each image
+    const childArray = [children].flat();
     const itemArray = useMemo(() => {
-        if (!array?.length) return [];
-        return array
-            .filter((entry) => entry.src)
-            .map((entry) => ({
+        if (!childArray.flat()?.length) return [];
+        return childArray
+            .map((child) => child.props)
+            .filter((child) => child.src)
+            .map((child) => ({
                 ref: createRef(),
-                src: entry.src,
-                scale: entry.scale || 1,
-                x: entry.x || 0,
-                xOffset: entry.xOffset || 0,
-                y: entry.y || 0,
-                yOffset: entry.yOffset || 0
+                scale: 1,
+                x: 0,
+                xOffset: 0,
+                y: 0,
+                yOffset: 0,
+                ...child
             }));
-    }, [array]);
+    }, [children]);
 
     // E F F E C T
 
@@ -74,7 +78,7 @@ export default function Parallax({
 
         position: 'relative'
     }}>
-        {itemArray?.map((item, index) => (
+        {itemArray.map((item, index) => (
             <div key={index} style={{
                 width: '100%',
                 height: '100%',

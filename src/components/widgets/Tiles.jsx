@@ -10,10 +10,16 @@ import { useClientStore } from '#stores/useClientStore.js';
 
 export default function Tiles({
 
-    array = [],
+    children = [],
+
+    // Arguments
     aspectRatio = 16 / 9,
-    color = 'transparent',
+    color,
+    columns = 0,
     minWidth = 0,
+    rows = 0,
+
+    // Attributes
     rounded = false
 
 }) {
@@ -29,6 +35,7 @@ export default function Tiles({
     // Stores
     const client = useClientStore();
     const isDesktop = client.device !== 'mobile';
+    const isMobile = client.device === 'mobile';
 
     // C O N F I G
 
@@ -37,11 +44,28 @@ export default function Tiles({
 
     // D E F I N E
 
-    const itemWidth = minWidth || (isDesktop ? desktopMinWidth : mobileMinWidth);
-    const columnCount = Math.floor(parentWidth / itemWidth);
-    const rowCount = Math.floor(array.length / columnCount);
-    const itemCount = columnCount * rowCount;
-    const itemArray = array.slice(0, itemCount);
+    // Remove device specific entries
+    const childArray = [children].flat();
+    const childArrayFiltered = childArray.filter((child) => {
+        if (child.props.desktop && isMobile) return false;
+        if (child.props.mobile && isDesktop) return false;
+        return true;
+    });
+
+    // Adjust width to entry count and minimum width
+    minWidth = minWidth || (isDesktop ? desktopMinWidth : mobileMinWidth);
+    const itemCount = childArrayFiltered.length;
+    const itemWidth = Math.max(Math.floor(parentWidth / itemCount), minWidth);
+
+    // Get grid measurements
+    const columnCount = columns || Math.floor(parentWidth / itemWidth);
+    const rowCount = rows || Math.floor(childArrayFiltered.length / columnCount);
+    const itemTotal = columnCount * rowCount;
+
+    // Fit entries inside grid
+    const itemArray = childArrayFiltered
+        .slice(0, itemTotal)
+        .map((item) => item.props);
 
     // E F F E C T
 
@@ -54,7 +78,7 @@ export default function Tiles({
 
     // R E T U R N
 
-    return <ul ref={listRef} className="tiles" style={{
+    return <ul className="tiles" ref={listRef} style={{
         borderRadius: rounded ? isDesktop ? 3 : 2 : undefined,
 
         display: 'grid',
@@ -73,6 +97,11 @@ export default function Tiles({
                     loading="lazy"
                     src={item.src}
                     style={{
+                        background: item.color || undefined,
+                        width: '100%',
+                        height: '100%',
+
+                        display: 'block',
                         objectFit: 'cover'
                     }}
                 />

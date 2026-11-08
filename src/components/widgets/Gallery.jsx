@@ -10,7 +10,9 @@ import '#styles/components/widgets/Gallery.css';
 
 export default function Gallery({
 
-    array = [],
+    children = [],
+
+    // Arguments
     color = 'transparent',
     columns = 0
 
@@ -25,27 +27,37 @@ export default function Gallery({
 
     // D E F I N E
 
+    // Remove device specific entries
+    const childArray = [children].flat();
+    const childArrayFiltered = childArray.filter((child) => {
+        if (child.props.desktop && isMobile) return false;
+        if (child.props.mobile && isDesktop) return false;
+        return true;
+    });
+
+    // Adjust column count to available items
     const columnCount = (() => {
         if (columns) return columns;
         if (client.body.width > 1440)
-            if (array.length % 5 === 0) return 5;
+            if (childArrayFiltered.length % 5 === 0) return 5;
         if (client.body.width > 1200)
-            if (array.length % 4 === 0) return 4;
+            if (childArrayFiltered.length % 4 === 0) return 4;
         if (client.body.width > 960)
-            return (array.length % 3 === 0) ? 3 : 2;
+            return (childArrayFiltered.length % 3 === 0) ? 3 : 2;
         if (client.body.width < 384)
-            return (array.length % 2 === 0) ? 2 : 1;
+            return (childArrayFiltered.length % 2 === 0) ? 2 : 1;
         if (client.body.width < 768)
-            return (array.length % 3 === 0) ? 3 : 2;
+            return (childArrayFiltered.length % 3 === 0) ? 3 : 2;
         if (isDesktop)
             return Math.ceil(client.body.width / 360);
         if (isMobile)
             return Math.ceil(client.body.width / 265);
     })();
 
-    const itemCount = Math.floor(array.length / columnCount) * columnCount;
-
-    const itemArray = array.slice(0, itemCount);
+    // Get grid measurements
+    const rowCount = Math.floor(childArrayFiltered.length / columnCount);
+    const itemCount = columnCount * rowCount;
+    const itemArray = childArrayFiltered.slice(0, itemCount);
 
     // E F F E C T
 
@@ -56,13 +68,13 @@ export default function Gallery({
             <li key={index}>
                 <figure>
                     <img
-                        alt={item.alt || undefined}
                         loading="lazy"
-                        src={item.src}
+                        alt={item.props.alt || undefined}
+                        src={item.props.src}
                         style={{ backgroundColor: color || 'transparent' }}
                     />
-                    {item.caption && <figcaption>
-                        {item.caption}
+                    {item.props.caption && <figcaption>
+                        {item.props.caption}
                     </figcaption>}
                 </figure>
             </li>

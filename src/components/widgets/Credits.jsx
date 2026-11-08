@@ -4,7 +4,7 @@
 import { ui } from '#assets/vector/index.jsx';
 
 // Modules
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 // Stores
 import { useClientStore } from '#stores/useClientStore.js';
@@ -16,33 +16,41 @@ import '#styles/components/widgets/Credits.css';
 
 export default function Credits({
     
-    array = []
+    children = [],
+
+    // Arguments
+    color = undefined
 
 }) {
 
     // A S S I G N
-
-    // States
-    const [expand, setExpand] = useState(false);
 
     // Stores
     const device = useClientStore(state => state.device);
     const isDesktop = device !== 'mobile';
     const isMobile = device === 'mobile';
 
-    // E F F E C T
+    // States
+    const [expand, setExpand] = useState(isDesktop);
 
-    // Expand credits by default on desktop
-    useEffect(() => {
-        if (isDesktop) setExpand(true);
-    }, [isDesktop]);
+    // D E F I N E
+
+    // Combine head and body elements
+    const childArray = [children].flat();
+    const itemArray = [];
+    const itemCount = Math.ceil(childArray.length / 2);
+    for (let index = 0; index < itemCount; index++) {
+        const Head = childArray[index * 2];
+        const Body = childArray[index * 2 + 1];
+        itemArray.push([Head, Body]);
+    }
 
     // R E T U R N
 
     return <div className="credits">
 
         {/* Toggle */}
-        
+
         {isMobile && <button
             onClick={() => setExpand((expand) => !expand)}
         >
@@ -52,11 +60,11 @@ export default function Credits({
 
         {/* Column */}
 
-        {expand && <dl className="credits__list">
-            {array.map((item, index) => (
+        {expand && <dl className="credits__list" style={{ color }}>
+            {itemArray.map(([Head, Body], index) => (
                 <div key={index} className="credits__list-item">
-                    <dt>{item.head}</dt>
-                    <dd>{item.body}</dd>
+                    {Head}
+                    {Body}
                 </div>
             ))}
         </dl>}

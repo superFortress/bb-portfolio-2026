@@ -1,0 +1,189 @@
+/* G E N E R A L */
+
+/* .project */
+
+.project {
+    counter-reset: chapter;
+}
+
+.project > :is(aside, footer, header, section) {
+    position: relative;
+
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* __column */
+
+.project > header .project__column {
+    gap: var(--project-header-gap);
+}
+
+.project > :is(aside, footer, section) .project__column {
+    gap: var(--project-section-gap);
+}
+
+.project__column {
+    display: flex;
+    flex-direction: column;
+}
+
+.project__column :is(h1, h2) {
+    font-family: "Radio Canada Big", sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+}
+
+.project__column h3 {
+    font-family: "Literata", serif;
+    font-weight: 575;
+}
+
+.project h3::before {
+    content: counter(chapter) '.';
+    counter-increment: chapter;
+}
+
+.project__column p {
+    font-family: "Literata", serif;
+    font-weight: 400;
+}
+
+.project__column p b {
+    font-weight: 575;
+}
+
+/* D E S K T O P */
+
+@media (min-width: 768px) {
+
+    /* .project */
+
+    .project figcaption {
+        font-size: 13px;
+        line-height: 15px;
+
+        margin: 8px 0 0;
+    }
+
+    .project :is(h1, h2) {
+        font-size: 60px;
+        line-height: 80px;
+
+        margin: -20px 0;
+    }
+
+    .project h3 {
+        font-size: 16px;
+        line-height: 27px;
+
+        margin: -10px 0 -5px;
+    }
+
+    .project h3::before {
+        margin-right: 12px;
+    }
+
+    .project :is(hr, .rule) + h3 {
+        margin: -50px 0 -5px;
+    }
+
+    .project header p {
+        font-size: 22px;
+        line-height: 35px;
+
+        margin: -10px 0 -5px;
+    }
+
+    .project p:not(header p) {
+        font-size: 16px;
+        line-height: 27px;
+        text-align: justify;
+    }
+
+    .project h3 + p {
+        columns: 3 auto;
+        column-gap: 35px;
+    }
+
+    .project h3 + p::first-letter {
+        font-size: 3.4em;
+        font-weight: 500;
+
+        margin: 0.21em 0.12em 0 0;
+
+        float: left;
+    }
+
+    .project .carousel {
+        margin: 0 0 -25px;
+    }
+
+    /* __column */
+
+    .project__column figure img {
+        border-radius: 3px;
+    }
+
+}
+
+/* M O B I L E */
+
+@media (max-width: 767px) {
+
+    /* .project */
+
+    .project figcaption {
+        font-size: 12px;
+        line-height: 15px;
+
+        margin: 5px 0 0;
+    }
+
+    .project :is(h1, h2) {
+        font-size: 34px;
+        line-height: 40px;
+
+        margin: -10px 0 -8px;
+    }
+
+    .project h3 {
+        font-size: 16px;
+        line-height: 24px;
+
+        margin: -10px 0 -5px;
+    }
+
+    .project :is(hr, .rule) + h3 {
+        margin: -25px 0 -5px;
+    }
+
+    .project h3::before {
+        margin-right: 8px;
+    }
+
+    .project p {
+        font-size: 16px;
+        line-height: 25px;
+
+        margin: -5px 0 0;
+    }
+
+    .project .carousel {
+        margin: 0 0 -16px;
+    }
+
+    .project .credits {
+        margin: -15px 0 0;
+    }
+
+    /* __column */
+
+    .project__column figure img {
+        border-radius: 2px;
+    }
+    
+}
